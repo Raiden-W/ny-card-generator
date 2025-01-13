@@ -1,5 +1,4 @@
 import { useState } from "react";
-import ImageComposer from "../components/ImageComposer";
 
 const ResultPage = () => {
 	const [resultImage, setResultImage] = useState(null);
@@ -18,20 +17,7 @@ const ResultPage = () => {
 		}
 	};
 
-	return (
-		<div className="result page">
-			{!resultImage ? (
-				<ImageComposer onCompositionComplete={handleCompositionComplete} />
-			) : (
-				<>
-					<div className="result-image">
-						<img src={resultImage} alt="Composed result" />
-					</div>
-					<button onClick={handleSave}>保存</button>
-				</>
-			)}
-		</div>
-	);
+	return <div className="result page"></div>;
 };
 
 export default ResultPage;

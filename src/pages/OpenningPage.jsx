@@ -1,16 +1,35 @@
-import openningVideo from "../assets/videos/test_openning_video.mp4";
+import { useEffect, useState } from "react";
+import logo2025Gif from "../assets/gifs/logo2025.gif";
 
-const OpenningPage = () => {
+const OpenningPage = ({ onOpenningComplete }) => {
+	const [isLoading, setIsLoading] = useState(true);
+
+	useEffect(() => {
+		const img = new Image();
+		img.onload = () => {
+			setIsLoading(false);
+			// Change page after GIF duration
+			setTimeout(onOpenningComplete, 10500);
+		};
+		img.src = logo2025Gif;
+	}, []);
+
+	if (isLoading) {
+		return (
+			<div className="openning page">
+				<div className="loading">...</div>
+			</div>
+		);
+	}
+
 	return (
 		<div className="openning page">
-			<div className="openning-video-container">
-				<video
-					autoPlay
-					muted // browsers usually require muted for autoPlay to work
-					src={openningVideo}
-				/>
+			<div className="openning-gif-container">
+				<img src={logo2025Gif} alt="Opening animation" />
 			</div>
-			<button className="skip-btn">跳过</button>
+			<button className="skip-btn" onClick={onOpenningComplete}>
+				跳过
+			</button>
 		</div>
 	);
 };
