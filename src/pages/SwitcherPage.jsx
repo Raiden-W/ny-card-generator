@@ -6,12 +6,10 @@ const SwitcherPage = () => {
 	return (
 		<div className="switcher page">
 			<h3>选择艺人</h3>
-			<div>
+			<div className="switcher-container">
 				<ArtistSwitcher />
-				<FrameSwitcher />
-				<WishSwitcher />
 			</div>
-			<button>下一步</button>
+			<button className="next-btn">下一步</button>
 		</div>
 	);
 };
