@@ -4,7 +4,6 @@ import background from "./assets/images/bg.jpg";
 import OpenningPage from "./pages/OpenningPage";
 import SwitcherPage from "./pages/SwitcherPage";
 import ResultPage from "./pages/ResultPage";
-import FinalCardSelector from "./components/FinalCardSelector";
 
 function App() {
 	const [currentPage, setCurrentPage] = useState("opening");
@@ -15,6 +14,15 @@ function App() {
 		setCurrentPage("switcher");
 	};
 
+	const handleSwitcherComplete = () => {
+		setCurrentPage("result");
+	};
+
+	const handleReturn = () => {
+		setCurrentPage("switcher");
+		resultIndexRef.current = ""; // Reset the result index
+	};
+
 	return (
 		<div className="app-wrapper">
 			<img src={background} alt="background" className="background" />
@@ -22,10 +30,15 @@ function App() {
 				<OpenningPage onOpenningComplete={handleOpenningComplete} />
 			)}
 			{currentPage === "switcher" && (
-				<SwitcherPage resultIndexRef={resultIndexRef} />
+				<SwitcherPage
+					resultIndexRef={resultIndexRef}
+					onComplete={handleSwitcherComplete}
+				/>
 			)}
 
-			{currentPage === "result" && <ResultPage />}
+			{currentPage === "result" && (
+				<ResultPage resultIndexRef={resultIndexRef} onReturn={handleReturn} />
+			)}
 		</div>
 	);
 }

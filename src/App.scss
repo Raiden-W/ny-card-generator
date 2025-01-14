@@ -5,7 +5,6 @@
 	height: 100%;
 	position: relative;
 	overflow: hidden;
-	// background-color: red;
 
 	.background {
 		width: 100%;
@@ -18,71 +17,91 @@
 		height: 100%;
 		position: absolute;
 	}
-
-	.openning {
-		.openning-gif-container {
-			width: 100%;
-			height: 100%;
-			position: absolute;
-			top: 0;
-			left: 0;
-			padding: 10px;
-
-			img {
-				width: 100%;
-				height: 100%;
-				object-fit: contain;
-				object-position: center;
-			}
-		}
-
-		.skip-btn {
-			width: 4em;
-			height: 2.2em;
-			position: absolute;
-			left: 50%;
-			bottom: 20%;
-			transform: translateX(-50%);
-		}
-	}
 }
 
-.result.page {
-	.image-composer {
-		.selection-options {
-			display: flex;
-			flex-direction: column;
-			gap: 2rem;
-			padding: 1rem;
-
-			.options {
-				display: flex;
-				gap: 1rem;
-				overflow-x: auto;
-
-				img {
-					width: 100px;
-					height: auto;
-					cursor: pointer;
-					border: 2px solid transparent;
-
-					&.selected {
-						border-color: #007bff;
-					}
-				}
-			}
-		}
-	}
-
-	.result-image {
+.openning {
+	.openning-gif-container {
 		width: 100%;
-		height: 80%;
+		height: 100%;
+		position: absolute;
+		top: -5%;
+		left: 0;
+		padding: 10px;
 
 		img {
 			width: 100%;
 			height: 100%;
 			object-fit: contain;
+			object-position: center;
 		}
+	}
+
+	.skip-btn {
+		position: absolute;
+		left: 50%;
+		bottom: 15%;
+		transform: translateX(-50%);
+		text-align: center;
+
+		img {
+			width: 30%;
+			margin-top: 10px;
+		}
+	}
+}
+
+.result.page {
+	background-color: #8e1c0d;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+
+	.result-image {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: 83%;
+		flex-grow: 1.5;
+		// margin-bottom: 20px;
+
+		img {
+			// padding: 20px;
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+			filter: drop-shadow(5px 5px 5px #3232326a);
+		}
+	}
+
+	.btns-col-group {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: start;
+		align-items: center;
+		flex-grow: 1;
+
+		.btns-container {
+			width: 100%;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-evenly;
+			align-items: center;
+			padding: 0px 4%;
+
+			img {
+				width: 8rem;
+			}
+		}
+	}
+
+	.tip-text {
+		position: absolute;
+		font-size: 0.8rem;
+		color: #fff;
+		bottom: 3%;
 	}
 }
 

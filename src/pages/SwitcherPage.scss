@@ -25,6 +25,24 @@
 		height: 50%;
 		touch-action: none;
 	}
+
+	.btns-container {
+		width: 100%;
+		height: 23%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 20px;
+		z-index: 10;
+
+		img {
+			height: 1rem;
+		}
+
+		.yes-btn {
+			padding: 0px 35px;
+		}
+	}
 }
 
 // Common styles for all switchers
@@ -159,19 +177,5 @@
 	}
 	.wish-card.bg {
 		mix-blend-mode: overlay;
-	}
-}
-
-.btns-container {
-	width: 100%;
-	height: 23%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 20px;
-	z-index: 10;
-
-	.next-btn {
-		padding: 10px 20px;
 	}
 }

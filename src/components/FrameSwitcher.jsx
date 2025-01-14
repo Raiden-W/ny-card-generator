@@ -2,9 +2,16 @@ import { motion } from "framer-motion";
 import frame_0 from "../assets/images/frames/frame_0.jpg";
 import frame_1 from "../assets/images/frames/frame_1.jpg";
 import frame_2 from "../assets/images/frames/frame_2.jpg";
+import frame_n_0 from "../assets/images/frames/frame_n_0.png";
+import frame_n_1 from "../assets/images/frames/frame_n_1.png";
+import frame_n_2 from "../assets/images/frames/frame_n_2.png";
 
-const FrameSwitcher = ({ currentIndex, onSwipe }) => {
-	const frames = [frame_0, frame_1, frame_2];
+const FrameSwitcher = ({ currentIndex, chosenArtistIndexRef, onSwipe }) => {
+	// Choose frames array based on chosenArtistIndexRef
+	const frames =
+		chosenArtistIndexRef.current === 3
+			? [frame_n_0, frame_n_1, frame_n_2]
+			: [frame_0, frame_1, frame_2];
 
 	const handleDragEnd = (event, info) => {
 		const swipeThreshold = 50; // minimum distance for swipe
