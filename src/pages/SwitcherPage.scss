@@ -60,6 +60,19 @@
 		touch-action: none;
 		overflow-y: visible;
 	}
+
+	.artist-text {
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translateX(-50%) translateY(50%);
+		z-index: 4;
+		text-align: center;
+		img {
+			height: 2rem;
+			object-fit: contain;
+		}
+	}
 }
 
 // Specific styles for artist switcher
