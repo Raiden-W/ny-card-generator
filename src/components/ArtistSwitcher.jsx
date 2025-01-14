@@ -1,42 +1,46 @@
-import { useState } from "react";
+import { motion } from "framer-motion";
+import artist_0 from "../assets/images/artists/artist_0.png";
 import artist_1 from "../assets/images/artists/artist_1.png";
 import artist_2 from "../assets/images/artists/artist_2.png";
 import artist_3 from "../assets/images/artists/artist_3.png";
-import artist_4 from "../assets/images/artists/artist_4.png";
 
-const ArtistSwitcher = () => {
-	const [currentIndex, setCurrentIndex] = useState(0);
-	const artists = [artist_1, artist_2, artist_3, artist_4];
+const ArtistSwitcher = ({ currentIndex, onSwipe }) => {
+	const artists = [artist_0, artist_1, artist_2, artist_3];
 
-	const handleLeftClick = () => {
-		setCurrentIndex((prev) => (prev === 0 ? artists.length - 1 : prev - 1));
-	};
+	const handleDragEnd = (event, info) => {
+		const swipeThreshold = 50; // minimum distance for swipe
+		const { offset } = info;
 
-	const handleRightClick = () => {
-		setCurrentIndex((prev) => (prev === artists.length - 1 ? 0 : prev + 1));
+		if (Math.abs(offset.x) > swipeThreshold) {
+			if (offset.x > 0) {
+				onSwipe("left");
+			} else {
+				onSwipe("right");
+			}
+		}
 	};
 
 	return (
 		<div className="artist-switcher">
-			<div className="carousel-container">
-				{artists.map((artist, index) => {
-					const position =
-						(index - currentIndex + artists.length) % artists.length;
-					return (
-						<div key={index} className={`artist-card position-${position}`}>
-							<img src={artist} alt={`Artist ${index + 1}`} />
-						</div>
-					);
-				})}
-			</div>
-			<div className="switch-buttons">
-				<button className="switch-btn left" onClick={handleLeftClick}>
-					←
-				</button>
-				<button className="switch-btn right" onClick={handleRightClick}>
-					→
-				</button>
-			</div>
+			<motion.div
+				className="carousel-container"
+				drag="x"
+				dragConstraints={{ left: 0, right: 0 }}
+				dragElastic={0}
+				dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
+				onDragEnd={handleDragEnd}
+			>
+				{artists.map((artist, index) => (
+					<div
+						key={index}
+						className={`artist-card position-${
+							(index - currentIndex + artists.length) % artists.length
+						}`}
+					>
+						<img src={artist} alt={`Artist ${index}`} />
+					</div>
+				))}
+			</motion.div>
 		</div>
 	);
 };

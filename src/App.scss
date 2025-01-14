@@ -7,21 +7,19 @@
 	overflow: hidden;
 	// background-color: red;
 
+	.background {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+	}
+
 	.page {
 		width: 100%;
 		height: 100%;
 		position: absolute;
 	}
 
-	// button {
-	// 	border-radius: 5px;
-	// 	border-width: 2px;
-	// 	font-weight: 800;
-	// 	font-size: 1rem;
-	// }
-
 	.openning {
-		background-color: red;
 		.openning-gif-container {
 			width: 100%;
 			height: 100%;
@@ -45,120 +43,6 @@
 			left: 50%;
 			bottom: 20%;
 			transform: translateX(-50%);
-		}
-	}
-
-	.switcher.page {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		// padding: 20px;
-
-		h3 {
-			margin-bottom: 20px;
-		}
-
-		.switcher-container {
-			width: 100%;
-			height: 70%;
-			position: relative;
-		}
-
-		.next-btn {
-			margin-top: 20px;
-			padding: 10px 20px;
-		}
-	}
-
-	.artist-switcher {
-		width: 100%;
-		height: 100%;
-		position: relative;
-		overflow: hidden;
-
-		.carousel-container {
-			width: 100%;
-			height: 100%;
-			position: relative;
-		}
-
-		.artist-card {
-			position: absolute;
-			width: 75%;
-			height: 100%;
-			transition: all 0.3s ease;
-
-			img {
-				width: 100%;
-				height: 100%;
-				object-fit: contain;
-			}
-
-			// Position styles for each card
-			&.position-0 {
-				// Current (center) card
-				left: 50%;
-				transform: translateX(-50%);
-				z-index: 3;
-				opacity: 1;
-			}
-
-			&.position-1,
-			&.position-3 {
-				// Side cards
-				width: 60%;
-				opacity: 0.7;
-			}
-
-			&.position-1 {
-				// Right card
-				left: 85%;
-				transform: translateX(-50%);
-				z-index: 2;
-			}
-
-			&.position-3 {
-				// Left card
-				left: 15%;
-				transform: translateX(-50%);
-				z-index: 2;
-			}
-
-			&.position-2 {
-				// Back card
-				left: 50%;
-				transform: translateX(-50%);
-				opacity: 0;
-				z-index: 1;
-			}
-		}
-
-		.switch-buttons {
-			position: absolute;
-			bottom: 20px;
-			left: 0;
-			right: 0;
-			display: flex;
-			justify-content: center;
-			gap: 20px;
-			z-index: 10;
-
-			.switch-btn {
-				padding: 10px 20px;
-				cursor: pointer;
-				background-color: white;
-				border: 1px solid #ccc;
-				border-radius: 4px;
-				z-index: 10;
-
-				&:hover {
-					background-color: #f0f0f0;
-				}
-
-				&:active {
-					background-color: #e0e0e0;
-				}
-			}
 		}
 	}
 }
