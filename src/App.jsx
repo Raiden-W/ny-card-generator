@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./App.scss";
 import background from "./assets/images/bg.jpg";
 import OpenningPage from "./pages/OpenningPage";
@@ -9,6 +9,13 @@ function App() {
 	const [currentPage, setCurrentPage] = useState("opening");
 
 	const resultIndexRef = useRef("");
+
+	useEffect(() => {
+		document.addEventListener("WeixinJSBridgeReady", function onBridgeReady() {
+			WeixinJSBridge.call("hideOptionMenu");
+			WeixinJSBridge.call("hideToolbar");
+		});
+	}, []);
 
 	const handleOpenningComplete = () => {
 		setCurrentPage("switcher");
