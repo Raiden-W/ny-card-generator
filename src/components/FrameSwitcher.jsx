@@ -5,6 +5,7 @@ import frame_2 from "../assets/images/frames/frame_2.jpg";
 import frame_n_0 from "../assets/images/frames/frame_n_0.png";
 import frame_n_1 from "../assets/images/frames/frame_n_1.png";
 import frame_n_2 from "../assets/images/frames/frame_n_2.png";
+import selectFrameText from "../assets/images/select_frame.png";
 
 const FrameSwitcher = ({ currentIndex, chosenArtistIndexRef, onSwipe }) => {
 	// Choose frames array based on chosenArtistIndexRef
@@ -47,6 +48,9 @@ const FrameSwitcher = ({ currentIndex, chosenArtistIndexRef, onSwipe }) => {
 					</div>
 				))}
 			</motion.div>
+			<div className="frame-select-text carousel-bottom">
+				<img src={selectFrameText} alt="Select Frame" />
+			</div>
 		</div>
 	);
 };

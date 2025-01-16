@@ -3,6 +3,7 @@ import wish_0 from "../assets/images/wishes/wish_0.png";
 import wish_1 from "../assets/images/wishes/wish_1.png";
 import wish_2 from "../assets/images/wishes/wish_2.png";
 import wish_bg from "../assets/images/wishes/wish_bg.png";
+import selectWishText from "../assets/images/select_wish.png";
 
 const WishSwitcher = ({ currentIndex, onSwipe }) => {
 	const wishes = [wish_0, wish_1, wish_2];
@@ -49,6 +50,9 @@ const WishSwitcher = ({ currentIndex, onSwipe }) => {
 					</div>
 				))}
 			</motion.div>
+			<div className="wish-select-text carousel-bottom">
+				<img src={selectWishText} alt="Select Wish" />
+			</div>
 		</div>
 	);
 };

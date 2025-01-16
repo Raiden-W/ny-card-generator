@@ -5,6 +5,7 @@ import saveBtn from "../assets/images/save.png";
 const ResultPage = ({ resultIndexRef, onReturn }) => {
 	const [resultImage, setResultImage] = useState(null);
 	const [isLoading, setIsLoading] = useState(true);
+	const [isEnlarged, setIsEnlarged] = useState(false);
 
 	useEffect(() => {
 		const loadResultImage = async () => {
@@ -29,32 +30,35 @@ const ResultPage = ({ resultIndexRef, onReturn }) => {
 		loadResultImage();
 	}, [resultIndexRef.current]);
 
-	const handleSave = () => {
-		if (resultImage) {
-			const a = document.createElement("a");
-			a.href = resultImage;
-			a.download = "composed-image.png";
-			a.click();
-			URL.revokeObjectURL(resultImage);
-		}
+	const handleImageClick = () => {
+		setIsEnlarged(!isEnlarged);
 	};
 
 	return (
 		<div className="result page">
-			<div className="result-image">
+			<div
+				className={`result-image ${isEnlarged ? "enlarged" : ""}`}
+				onClick={handleImageClick}
+			>
 				{isLoading ? (
 					<div></div>
 				) : (
-					resultImage && <img src={resultImage} alt="result" />
+					resultImage && (
+						<div className="image-wrapper">
+							<img src={resultImage} alt="result" />
+							<div className={`tip-text ${isEnlarged ? "enlarged" : ""}`}>
+								长按图片保存或分享
+							</div>
+						</div>
+					)
 				)}
 			</div>
-			<div className="tip-text">长按图片保存或分享</div>
-			<div className="btns-col-group">
+			<div className={`btns-col-group ${isEnlarged ? "hidden" : ""}`}>
 				<div className="btns-container">
 					<div className="return-btn" onClick={onReturn}>
 						<img src={returnBtn} alt="return" />
 					</div>
-					<div className="save-btn" onClick={handleSave}>
+					<div className="save-btn" onClick={handleImageClick}>
 						<img src={saveBtn} alt="save" />
 					</div>
 				</div>
