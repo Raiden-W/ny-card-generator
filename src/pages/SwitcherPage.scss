@@ -108,9 +108,9 @@
 			z-index: 3;
 			opacity: 1;
 
-			&:active {
-				transform: translateX(-50%) scale(0.95);
-			}
+			// &:active {
+			// 	transform: translateX(-50%) scale(0.95);
+			// }
 		}
 
 		// right side card
@@ -124,7 +124,8 @@
 		}
 
 		// back card
-		&.position-2 {
+		&.position-2,
+		&.position-3 {
 			width: 50%;
 			left: 50%;
 			top: 55%;
@@ -134,7 +135,7 @@
 		}
 
 		// left side card
-		&.position-3 {
+		&.position-4 {
 			width: 50%;
 			opacity: 0.7;
 			top: 55%;

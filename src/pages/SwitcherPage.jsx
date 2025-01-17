@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import ArtistSwitcher from "../components/ArtistSwitcher";
 import FrameSwitcher from "../components/FrameSwitcher";
 import WishSwitcher from "../components/WishSwitcher";
@@ -14,14 +14,18 @@ const SwitcherPage = ({ resultIndexRef, onComplete }) => {
 	const chosenFrameIndexRef = useRef(0);
 	const chosenWishIndexRef = useRef(0);
 	const currentIndexRef = useRef(0);
-	const [currentIndex, setCurrentIndex] = useState(0);
+	const [currentIndex, setCurrentIndex] = useState(3); //initial the index of the defuat artist
+
+	useEffect(() => {
+		currentIndexRef.current = currentIndex;
+	}, []);
 
 	const handleSwitch = (direction) => {
 		setCurrentIndex((prev) => {
 			let maxLength;
 			switch (currentStep) {
 				case 0:
-					maxLength = 4; // number of artists
+					maxLength = 5; // number of artists
 					break;
 				case 1:
 					maxLength = 3; // number of frames

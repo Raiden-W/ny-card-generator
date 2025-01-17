@@ -3,14 +3,22 @@ import artist_0 from "../assets/images/artists/artist_0.png";
 import artist_1 from "../assets/images/artists/artist_1.png";
 import artist_2 from "../assets/images/artists/artist_2.png";
 import artist_3 from "../assets/images/artists/artist_3.png";
+import artist_4 from "../assets/images/artists/artist_4.png";
 import aText_0 from "../assets/images/artists-text/atext_0.png";
 import aText_1 from "../assets/images/artists-text/atext_1.png";
 import aText_2 from "../assets/images/artists-text/atext_2.png";
+import aText_4 from "../assets/images/artists-text/atext_4.png";
 import handIcon from "../assets/images/hand.png";
 
 const ArtistSwitcher = ({ currentIndex, onSwipe }) => {
-	const artists = [artist_0, artist_1, artist_2, artist_3];
-	const aTexts = [aText_0, aText_1, aText_2];
+	const artists = [artist_0, artist_1, artist_2, artist_3, artist_4];
+	const aTexts = {
+		0: aText_0,
+		1: aText_1,
+		2: aText_2,
+		3: null,
+		4: aText_4,
+	};
 
 	const handleDragEnd = (event, info) => {
 		const swipeThreshold = 50;
