@@ -12,13 +12,14 @@ import handIcon from "../assets/images/hand.png";
 
 const ArtistSwitcher = ({ currentIndex, onSwipe }) => {
 	const artists = [artist_0, artist_1, artist_2, artist_3, artist_4];
-	const aTexts = {
-		0: aText_0,
-		1: aText_1,
-		2: aText_2,
-		3: null,
-		4: aText_4,
-	};
+	// const aTexts = {
+	// 	0: aText_0,
+	// 	1: aText_1,
+	// 	2: aText_2,
+	// 	3: null,
+	// 	4: aText_4,
+	// };
+	const aTexts = [aText_0, aText_1, aText_2, null, aText_4];
 
 	const handleDragEnd = (event, info) => {
 		const swipeThreshold = 50;
@@ -114,8 +115,18 @@ const ArtistSwitcher = ({ currentIndex, onSwipe }) => {
 				<img src={handIcon} alt="Swipe tip" />
 			</motion.div>
 			<div className="artist-text carousel-bottom">
-				{aTexts[currentIndex] && (
-					<img src={aTexts[currentIndex]} alt={`Artist Text ${currentIndex}`} />
+				{aTexts.map(
+					(aText, index) =>
+						aText && (
+							<img
+								key={index}
+								src={aText}
+								alt={`Artist Text ${index}`}
+								className={`${
+									currentIndex === parseInt(index) ? "active" : ""
+								}`}
+							/>
+						)
 				)}
 			</div>
 		</div>

@@ -76,8 +76,13 @@
 	}
 
 	.artist-text img {
+		display: none;
 		height: 2rem;
 		object-fit: contain;
+
+		&.active {
+			display: block;
+		}
 	}
 
 	.frame-select-text img,
