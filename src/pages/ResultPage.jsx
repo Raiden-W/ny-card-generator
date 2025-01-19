@@ -16,7 +16,7 @@ const ResultPage = ({ resultIndexRef, onReturn }) => {
 				try {
 					// Dynamic import of the result image based on resultIndexRef
 					const image = await import(
-						`../assets/images/results/${resultIndexRef.current}.png`
+						`../assets/images/results/${resultIndexRef.current}.jpg`
 					);
 					setResultImage(image.default);
 				} catch (error) {
