@@ -122,9 +122,7 @@ const ArtistSwitcher = ({ currentIndex, onSwipe }) => {
 								key={index}
 								src={aText}
 								alt={`Artist Text ${index}`}
-								className={`${
-									currentIndex === parseInt(index) ? "active" : ""
-								}`}
+								className={`${currentIndex === index ? "active" : ""}`}
 							/>
 						)
 				)}

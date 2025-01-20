@@ -10,12 +10,12 @@ function App() {
 
 	const resultIndexRef = useRef("");
 
-	useEffect(() => {
-		document.addEventListener("WeixinJSBridgeReady", function onBridgeReady() {
-			WeixinJSBridge.call("hideOptionMenu");
-			WeixinJSBridge.call("hideToolbar");
-		});
-	}, []);
+	// useEffect(() => {
+	// 	document.addEventListener("WeixinJSBridgeReady", function onBridgeReady() {
+	// 		WeixinJSBridge.call("hideOptionMenu");
+	// 		WeixinJSBridge.call("hideToolbar");
+	// 	});
+	// }, []);
 
 	const handleOpenningComplete = () => {
 		setCurrentPage("switcher");
